@@ -33,9 +33,9 @@ CREATE TABLE Machines (
     PRIMARY KEY (MachineID)
 );
 DROP TABLE IF EXISTS MachineEarnings;
-CREATE TABLE Machines (
+CREATE TABLE MachineEarnings (
     Ganancias int NOT NULL,
-    MachineID int NOT NULL,
+    MachineID int NOT NULL
 );
 INSERT INTO Users (
         Nombre,
