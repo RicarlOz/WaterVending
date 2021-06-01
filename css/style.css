@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body,
+html {
+    padding: 0%;
+    margin: 0%;
+}
+
+fieldset {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Style inputs, select elements and textareas */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
+/* Style the label to display next to the inputs */
+
+legend {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Style the submit button */
+
+.formNav,
+input[type=submit],
+button[type=button],
+#login {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+}
+
+.formNav,
+input[type=submit]:hover,
+button[type=button]:hover,
+#login:hover {
+    background-color: #2980b9;
+}
+
+.formResult {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: auto;
+    margin-bottom: 2%;
+    max-width: 60%;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    min-height: 60%;
+    padding-bottom: 20%;
+}
+
+.showData,
+form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin: auto;
+    margin-bottom: 2%;
+    max-width: 60%;
+    min-height: fit-content;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.showData {
+    text-align: center;
+    padding: 0;
+    min-height: 60%;
+    padding-bottom: 2%;
+}
+
+header {
+    margin: 0;
+    margin-bottom: 1%;
+    color: white;
+    background-color: #34495e;
+    padding: 1%;
+}
+
+.formHeader {
+    background-color: #34495e;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0%;
+    margin-top: 0%;
+}
+
+.formBody {
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-252 {
+    float: left;
+    width: 5%;
+    margin-top: 6px;
+}
+
+.col-2525 {
+    float: left;
+    width: 5%;
+    margin-top: 6px;
+    margin-left: 10%;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+.col-752 {
+    float: left;
+    width: 10%;
+    margin-top: 6px;
+}
+
+#sensorIncluded {
+    margin-top: 12px;
+    width: 25px;
+    height: 25px;
+}
+
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+    .col-25,
+    .col-75,
+    input {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+#maquinaTable {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    min-width: 80%;
+    min-height: 50%;
+}
+
+#maquinaTable th {
+    background-color: #347199;
+    color: white;
+}
+
+#maquinaTable td,
+#maquinaTable th {
+    border: 1px black solid;
+    margin: 0%;
+    min-width: 20%;
+}
+
+ul {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.toggle {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15%
+}
+
+.toggle li {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 40px;
+    position: relative;
+}
+
+.toggle label,
+.toggle input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.toggle input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+    padding: 5px;
+}
+
+.toggle input[type="radio"]:checked+label {
+    background: #3498db;
+    color: white;
+}
+
+.toggle label {
+    padding: 5px;
+    border: 1px solid rgb(71, 117, 170);
+    cursor: pointer;
+    z-index: 90;
+}
+
+.toggle label:hover {
+    background: #DDD;
+}
+
+#invalid-data {
+    display: none;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #dc3545;
+}
