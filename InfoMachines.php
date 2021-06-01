@@ -1,7 +1,13 @@
 <?php
 session_start();
 include("php/ConnectionDB.php");
-$email = $_SESSION["Email"];
+
+if (isset($_SESSION["Email"])) {
+    $email = $_SESSION["Email"];
+}
+else {
+    header('Location: index.php');
+}
 $machines = "(";
 
 $Ingresos = 0;
