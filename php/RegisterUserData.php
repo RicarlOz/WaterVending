@@ -16,15 +16,37 @@ $extNum = $_POST['extNum'];
 $intNum = $_POST['intNum'];
 $cp = $_POST['cp'];
 
-$consult = "INSERT INTO users (Nombre, Apellidos, Email, Contraseña, Telefono, Estado, Municipio, Colonia, Calle, Numero_Exterior, Numero_Interior, CP) VALUES('$name', '$lname', '$email', '$pswrd', '$phone', '$state', '$city', '$neigh', '$street', '$extNum', '$intNum', '$cp')";
+$consult = "INSERT INTO users (
+    Nombre, 
+    Apellidos, 
+    Email, 
+    Contraseña, 
+    Telefono, 
+    Estado, 
+    Municipio, 
+    Colonia, 
+    Calle, 
+    Numero_Exterior, 
+    Numero_Interior, 
+    CP) 
+    VALUES(
+        '$name', 
+        '$lname', 
+        '$email', 
+        '$pswrd', 
+        '$phone', 
+        '$state', 
+        '$city', 
+        '$neigh', 
+        '$street', 
+        '$extNum', 
+        '$intNum', 
+        '$cp')";
 
 $result = consultDB($consult);
 
-if($result == FALSE) {
+if ($result == FALSE) {
     echo "Hubo un problema registrando sus datos, por favor intentelo de nuevo.";
-}
-else {
+} else {
     echo "Gracias por registrarse, sus datos han sido guardados correctamente.";
 }
-
-?>

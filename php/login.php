@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('php/ConnectionDB.php');
+include('ConnectionDB.php');
 
 $found = FALSE;
 $email = $_POST['email'];

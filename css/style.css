@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body,
@@ -43,9 +43,10 @@ a {
 /* Style the submit button */
 
 .formNav,
-input[type=submit],
-button[type=button],
-#login {
+input[type="submit"],
+button[type="button"],
+#login,
+#other {
     background-color: #3498db;
     color: white;
     padding: 12px 20px;
@@ -54,9 +55,10 @@ button[type=button],
 }
 
 .formNav,
-input[type=submit]:hover,
-button[type=button]:hover,
-#login:hover {
+input[type="submit"]:hover,
+button[type="button"]:hover,
+#login:hover,
+#other:hover {
     background-color: #2980b9;
 }
 
@@ -246,7 +248,7 @@ ul {
     list-style-type: none;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15%
+    padding-left: 15%;
 }
 
 .toggle li {
@@ -287,13 +289,13 @@ ul {
 }
 
 .toggle label:hover {
-    background: #DDD;
+    background: #ddd;
 }
 
 #invalid-data {
     display: none;
     width: 100%;
-    margin-top: .25rem;
-    font-size: .875em;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
     color: #dc3545;
 }

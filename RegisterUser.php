@@ -214,9 +214,18 @@
                 var IntNum = document.getElementById('intNum').value;
                 var CP = document.getElementById('cp').value;
 
-                var info = "firstName=" + Name + "&lastName=" + LName + "&email=" + Email +
-                    "&password=" + Password + "&phone=" + Phone + "&state=" + State + "&city=" + City +
-                    "&colonia=" + Neigh + "&street=" + Street + "&extNum=" + ExtNum + "&intNum=" + IntNum + "&cp=" + CP;
+                var info = "firstName=" + Name +
+                    "&lastName=" + LName +
+                    "&email=" + Email +
+                    "&password=" + Password +
+                    "&phone=" + Phone +
+                    "&state=" + State +
+                    "&city=" + City +
+                    "&colonia=" + Neigh +
+                    "&street=" + Street +
+                    "&extNum=" + ExtNum +
+                    "&intNum=" + IntNum +
+                    "&cp=" + CP;
 
                 $.ajax({
                         url: "php/RegisterUserData.php",

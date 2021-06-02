@@ -1,10 +1,11 @@
 <?php
-    include('ConsultaBD.php');
+    include('ConnectionDB.php');
     
     $sql = "SELECT * FROM machines";
-    if($resultado = ConsultaBD($sql))
+    if($resultado = consultDB($sql))
         while($row = mysqli_fetch_array($resultado))
         {
-            echo "<option value=$row['MachineName']>$row['MachineName']</option>"
+            $alias = $row['Alias'];
+            echo "<option value=".$alias.">".$alias."</option>";
         }
 ?>

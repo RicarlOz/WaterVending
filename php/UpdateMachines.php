@@ -1,18 +1,39 @@
 <?php
-    include('ConsultaBD.php');
+    include('ConnectionDB.php');
 
+    $alias = $_POST['Alias'];
+    $status = $_POST['Estatus'];
+    $brand = $_POST['Brand'];
+    $model = $_POST['Model'];
+    $product = $_POST['Product'];
+    $sensor = $_POST['SensorIncluded'];
+    $state = $_POST['Estado'];
+    $city = $_POST['City'];
+    $colonia = $_POST['Colonia'];
+    $street = $_POST['Street'];
+    $machine = $_POST['Machine'];
 
-    $num = $_POST['Num'];
-    $nombre = $_POST['Nom'];
-    $apellido = $_POST['Ape'];
-    $nota = $_POST['Not'];
-    
-    //$sql = "SELECT * FROM estudiantes where Id = $num";
+    $sql = "UPDATE machines SET 
+        Alias = '$alias', 
+        Estatus = '$status', 
+        Marca = '$brand', 
+        Modelo = '$model', 
+        Producto = '$product', 
+        SensorIncluido = '$sensor', 
+        Estado = '$state', 
+        Municipio = '$city', 
+        Colonia = '$colonia', 
+        Calle = '$street' 
+        WHERE Alias = '$machine'";
 
-    $sql = "UPDATE estudiantes SET Nombre='$nombre', Apellido='$apellido', Nota=$nota WHERE Id=$num";
+    $result = consultDB($sql);
 
-    if(!ConsultaBD($sql))
-        echo "error al guardar los datos";
-    else
-        echo "<br><br>los siguientes datos han sido guardados correctamente nombre = ".$nombre.", apellido = ".$apellido.", nota = ".$nota;
+    // echo $sql;
+
+    if ($result == FALSE) {
+        echo "Hubo un problema registrando los datos, por favor intentelo de nuevo.";
+    } else {
+        echo "Gracias por su registro, los datos han sido guardados correctamente.";
+    }
+
 ?>

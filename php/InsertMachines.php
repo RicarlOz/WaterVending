@@ -1,22 +1,79 @@
 <?php
-    include('ConsultaBD.php');
+session_start();
+include("ConnectionDB.php");
 
-    $ClientName = $_POST['ClientName'];
-    $ClientNum = $_POST['ClientNum'];
-    $Phone = $_POST['Phone'];
-    $MachineName = $_POST['MachineName'];
-    $FechaAlta = $_POST['FechaAlta'];
-    $Situation = $_POST['Situation'];
-    $Brand = $_POST['Brand'];
-    $Model = $_POST['Model'];
-    $MachineType = $_POST['MachineType'];
-    $SensorIncluded = $_POST['SensorIncluded'];
-    $Street = $_POST['Street'];
-    $Colonia = $_POST['Colonia'];
-    $EntreCalles = $_POST['EntreCalles'];
-    $CP = $_POST['CP'];    
+$email = $_SESSION["Email"];
 
-    $sql = "INSERT INTO machines (ClientName, ClientNum, Phone, MachineName, FechaAlta, Situation, Brand, Model, MachineType, SensorIncluded, Street, Colonia, EntreCalles, CP) VALUES('$ClientName', '$ClientNum', '$Phone', '$MachineName', TO_DATE('$FechaAlta', 'DD/MM/YYYY'), '$Situation', '$Brand', '$Model', '$MachineType', $SensorIncluded, '$Street', '$Colonia', '$EntreCalles', $CP)";
+$consult = "SELECT * FROM Users WHERE Email = '$email'";
+$result = consultDB($consult);
 
-    ConsultaBD($sql)
+if ($row = mysqli_fetch_array($result)) {
+    $user = $row["UserID"];
+}
+
+$alias = $_POST['Alias'];
+$FechaAlta = date("Y/m/d");
+$status = $_POST['Estatus'];
+$brand = $_POST['Brand'];
+$model = $_POST['Model'];
+$product = $_POST['Product'];
+$sensor = $_POST['SensorIncluded'];
+$state = $_POST['Estado'];
+$city = $_POST['City'];
+$colonia = $_POST['Colonia'];
+$street = $_POST['Street'];
+
+$consult = "INSERT INTO machines (
+        Alias, 
+        FechaAlta, 
+        Estatus, 
+        Marca, 
+        Modelo, 
+        Producto, 
+        SensorIncluido, 
+        Estado, 
+        Municipio, 
+        Colonia, 
+        Calle, 
+        UserID
+        ) 
+        VALUES(
+            '$alias',
+            '$FechaAlta',
+            '$status',
+            '$brand',
+            '$model',
+            '$product',
+            $sensor,
+            '$state',
+            '$city',
+            '$colonia',
+            '$street',
+            $user
+            )";
+
+$result = consultDB($consult);
+
+$consult = "SELECT MAX(MachineID) AS MachineID FROM Machines WHERE UserID = $user";
+$mach = consultDB($consult);
+
+if ($row = mysqli_fetch_array($mach)) {
+    $machine = $row["MachineID"];
+}
+
+$ganancias = rand(0, 1000);
+
+$consult = "INSERT INTO machineearnings VALUES (
+        $ganancias, 
+        $machine
+        )";
+
+consultDB($consult);
+
+if ($result == FALSE) {
+    echo "Hubo un problema registrando los datos, por favor intentelo de nuevo.";
+} else {
+    echo "Gracias por su registro, los datos han sido guardados correctamente.";
+}
+
 ?>

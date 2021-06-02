@@ -1,17 +1,27 @@
 <?php
-    include('ConsultaBD.php');
+    include('ConnectionDB.php');
 
-    $MachineName = $_POST['MachineName'];
+    $alias = $_POST['Alias'];
     
-    //$sql = "SELECT * FROM estudiantes where Id = $num";
     $sql = "SELECT * FROM machines";
 
-    if($resultado = ConsultaBD($sql))
+    if($resultado = consultDB($sql)) {
         while($row = mysqli_fetch_array($resultado))
         {
-            if($MachineName == $row['MachineName'])
+            if($alias == $row['Alias'])
             {
-                echo  "$row['ClientName'];$row['ClientNum'];$row['Phone'];$row['MachineName'];$row['FechaAlta'];$row['Situation'];$row['Brand'];$row['Model'];$row['MachineType'];$row['SensorIncluded'];$row['Street'];$row['Colonia'];$row['EntreCalles'];$row['CP']"; 
+                $status = $row['Estatus'];
+                $brand = $row['Marca'];
+                $model = $row['Modelo'];
+                $product = $row['Producto'];
+                $sensor = $row['SensorIncluido'];
+                $state = $row['Estado'];
+                $city = $row['Municipio'];
+                $colina = $row['Colonia'];
+                $street = $row['Calle'];
+
+                echo "$alias,$status,$brand,$model,$product,$sensor,$state,$city,$colina,$street";
             }
         }
+    }
 ?>

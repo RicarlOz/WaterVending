@@ -17,7 +17,14 @@ $I_Cloro = 0;
 $I_Fabuloso = 0;
 $I_Suavitel = 0;
 
-$consult = "SELECT MachineID FROM Users JOIN Machines ON users.UserID = machines.UserID WHERE Email = '$email'";
+$consult = "SELECT * FROM Users WHERE Email = '$email'";
+$result = consultDB($consult);
+
+if ($row = mysqli_fetch_array($result)) {
+    $user = $row["UserID"];
+}
+
+$consult = "SELECT MachineID FROM Machines WHERE UserID = '$user'";
 $result = consultDB($consult);
 
 if ($result == FALSE)
@@ -26,8 +33,6 @@ if ($result == FALSE)
 while ($row = mysqli_fetch_array($result)) {
     $machines = $machines . (string)$row["MachineID"] . ", ";
 }
-
-substr_replace($machines, "", -1);
 
 $machines = $machines . "0)";
 
@@ -55,10 +60,10 @@ $result = consultDB($consult);
         <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menú</span>
         <div id="mySidenav1" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="InfoMachines.html">Página Principal</a>
-            <a href="PaymentMethod.html">Método de Pago</a>
-            <a href="RegisterMachines.html">Registro máquina</a>
-            <a href="ModifyMachines.html">Modificar máquina</a>
+            <a href="#">Página Principal</a>
+            <a href="PaymentMethod.php">Método de Pago</a>
+            <a href="RegisterMachines.php">Registro máquina</a>
+            <a href="ModifyMachines.php">Modificar máquina</a>
         </div>
 
     </header>
