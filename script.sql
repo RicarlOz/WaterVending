@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS watervendingproject;
+CREATE DATABASE watervendingproject;
+
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
     UserID int NOT NULL AUTO_INCREMENT,
